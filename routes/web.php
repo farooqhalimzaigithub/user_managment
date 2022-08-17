@@ -25,5 +25,7 @@ Route::controller(UserController::class)->group(function(){
     Route::get('logout','logout')->name('logout');
     Route::get('login','login')->name('login.index');
     Route::post('login','login')->name('login.store');
+    Route::get('register','register')->name('register.index');
+    Route::post('register','register')->name('register.store');
     Route::get('users','index')->name('users.index');
 });

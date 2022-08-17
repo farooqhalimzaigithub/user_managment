@@ -42,6 +42,15 @@ class UserController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 
+    public function register(Request $request)
+    {
+        if ($request->isMethod('get')) {
+            return view('user.register');
+        }
+
+        //do registration
+    }
+
     public function logout()
     {
         Auth::logout();
