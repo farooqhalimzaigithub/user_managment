@@ -20,7 +20,13 @@
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="{{asset('assets/images/favicon.png')}}')}}"
+      href="{{asset('assets/images/favicon.png')}}"
+    />
+
+     <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{asset('assets/libs/select2/dist/css/select2.min.css')}}"
     />
 
     <!-- For DataTables -->
@@ -565,11 +571,14 @@
     <script src="{{asset('dist/js/pages/chart/chart-page-init.js')}}"></script>
     <!-- For DataTables -->
      <script src="{{asset('assets/extra-libs/DataTables/datatables.min.js')}}"></script>
+    <script src="{{asset('assets/libs/select2/dist/js/select2.full.min.js')}}"></script>
+    <script src="{{asset('assets/libs/select2/dist/js/select2.min.js')}}"></script>
     <script>
       /****************************************
        *       Basic Table                   *
        ****************************************/
       $("#zero_config").DataTable();
+      $(".select2").select2();
     </script>
   </body>
 </html>
