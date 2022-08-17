@@ -405,13 +405,13 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="index.html"
+                  href="{{ route('home') }}"
                   aria-expanded="false"
                   ><i class="mdi mdi-view-dashboard"></i
                   ><span class="hide-menu">Dashboard</span></a
                 >
               </li>
-            
+
               <!-- <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -431,7 +431,7 @@
                 >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
-                    <a href="{{url('skills/create')}}" class="sidebar-link"
+                    <a href="{{ route('skills.index') }}" class="sidebar-link"
                       ><i class="mdi mdi-note-outline"></i
                       ><span class="hide-menu"> ADD </span></a
                     >
@@ -468,7 +468,7 @@
                   </li>
                 </ul>
               </li>
-            
+
             </ul>
           </nav>
           <!-- End Sidebar navigation -->

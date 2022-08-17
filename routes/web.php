@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,20 +14,16 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/main', function () {
     return view('admin-dashboard.layouts.master');
 });
-// Route::get('skills', function () {
-//     return view('admin-dashboard.skill-manage.index');
-// });
-// Route::get('skills/create', function () {
-//     return view('admin-dashboard.skill-manage.create');
-// });
-Route::get('users', function () {
-    return view('admin-dashboard.users-manage.index');
+
+Route::redirect('/','login');
+Route::resource('skills','App\Http\Controllers\SkillController')->except(['create','show']);
+Route::controller(UserController::class)->group(function(){
+    Route::get('home','home')->name('home');
+    Route::get('logout','logout')->name('logout');
+    Route::get('login','login')->name('login.index');
+    Route::post('login','login')->name('login.store');
+    Route::get('users','index')->name('users.index');
 });
-Route::resource('skills','App\Http\Controllers\SkillController');
-Route::resource('users','App\Http\Controllers\UserController');

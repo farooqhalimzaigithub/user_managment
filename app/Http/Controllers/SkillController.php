@@ -13,8 +13,8 @@ class SkillController extends Controller
      */
     public function index()
     {
-        $data['skills']=Skill::all();
-        return view('admin-dashboard.skill-manage.create',$data);
+        $data['skills']=Skill::latest()->get();
+        return view('skill.index',$data);
     }
 
     /**
@@ -24,8 +24,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-         $data['skills']=Skill::all();
-        return view('admin-dashboard.skill-manage.create',$data);
+        //
     }
 
     /**
@@ -36,7 +35,13 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate( [
+            'name' => 'required|max:255'
+        ] );
+        if (Skill::create(['name' => $request->name])) {
+            return back()->withSuccess("saved");
+        }
+        return back()->withError("not saved");
     }
 
     /**
@@ -56,9 +61,9 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Skill $skill)
     {
-        //
+        return view('skill.index',compact('skill'));
     }
 
     /**
@@ -68,9 +73,17 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Skill $skill)
     {
-        //
+        $request -> validate( [
+            'name' => 'required|max:255'
+        ] );
+        $skill->name = $request->name;
+        $skill->save();
+        if ($skill) {
+            return redirect(route('skills.create'))->withSuccess("updated");
+        }
+        return back()->withError("not updated");
     }
 
     /**
@@ -79,8 +92,11 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Skill $skill)
     {
-        //
+        if ($skill->delete()) {
+            return back()->withSuccess("deleted");
+        }
+        return back()->withError("not deleted");
     }
 }
