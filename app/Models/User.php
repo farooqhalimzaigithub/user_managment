@@ -12,16 +12,18 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $guarded = ['id'];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+    // ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -44,6 +46,31 @@ class User extends Authenticatable
 
     public function skills()
     {
-        # code...
+        return $this->belongsToMany(Skill::class);
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
+    public function attachSkills($skills)
+    {
+        return $this->skills()->attach($skills);
+    }
+
+    public function detachSkills($skills)
+    {
+        return $this->skills()->detach($skills);
+    }
+
+    public function syncSkills($skills)
+    {
+        return $this->skills()->sync($skills);
+    }
+
+    public function isAdmin()
+    {
+        return $this->attributes['admin'];
     }
 }
