@@ -1,42 +1,67 @@
 @extends('admin-dashboard.layouts.master')
 @section('content')
- <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Users list</h5>
-                  <div class="table-responsive">
-                    <table
-                      id="zero_config"
-                      class="table table-striped table-bordered"
-                    >
-                      <thead>
-                        <tr>
-                        	<th>S.NO</th>
-                          <th>User Name</th>
-                          <th>Action</th>
-                         
-                        </tr>
-                      </thead>
-                      <tbody>
-                       
-                      
-                        
-                        <tr>
-                          <td>Donna Snider</td>
-                          <td>Customer Support</td>
-                          <td>New York</td>
-                          
-                        </tr>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                        	<th>S.NO</th>
-                          <th>skill Name</th>
-                          <th>Action</th>
-                         
-                        </tr>
-                      </tfoot>
-                    </table>
+ <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <form class="form-horizontal">
+                  <div class="card-body">
+                    <h4 class="card-title">User Info</h4>
+                    <div class="row ">
+                    <div class="col-lg-6">
+                       <label
+                        for="skill name"
+                        class=" text-end control-label col-form-label">Skill Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="col-md-6"
+                      />
+                    </div>
+                    <div class="col-lg-6">
+                      <label
+                        for="skill name"
+                        class=" text-end control-label col-form-label">Skill Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="col-md-6"
+                      />
+                    </div>
                   </div>
-                </div>
+                     <div class="row ">
+                    <div class="col-lg-6">
+                       <label
+                        for="skill name"
+                        class=" text-end control-label col-form-label">Skill Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="col-md-6"
+                      />
+                    </div>
+                    <div class="col-lg-6">
+                      <label
+                        for="skill name"
+                        class=" text-end control-label col-form-label">Skill Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="col-md-6"
+                      />
+                    </div>
+                  </div>
+                  <div class="border-top">
+                    <div class="card-body">
+                      <button type="button" class="btn btn-primary">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
+            </div>
+            <div class="col-md-6">
+              sfd
+            </div>
+          </div>
 @stop

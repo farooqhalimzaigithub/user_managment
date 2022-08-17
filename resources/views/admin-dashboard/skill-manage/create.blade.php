@@ -32,7 +32,7 @@
 
           <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Basic Datatable</h5>
+                  <h5 class="card-title">Skills List</h5>
                   <div class="table-responsive">
                     <table
                       id="zero_config"
