@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/main', function () {
+    return view('admin-dashboard.layouts.master');
+});
+Route::get('skills', function () {
+    return view('admin-dashboard.skill-manage.index');
+});
+Route::get('skills/create', function () {
+    return view('admin-dashboard.skill-manage.create');
+});
+Route::get('users', function () {
+    return view('admin-dashboard.users-manage.index');
+});
+// Route::resources('skills','');
